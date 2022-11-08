@@ -7,6 +7,7 @@ import Purchase from '../../Pages/Purchase/Purchase';
 import ServiceDetails from '../../Pages/Service Details/ServiceDetails';
 import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
+import Dashboard from '../../Pages/UserDashboard/Dashboard';
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
                     return fetch(`http://localhost:5000/services/${params.id}`);
                 },
                 element: <Purchase></Purchase>
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
             }
         ]
     }
