@@ -1,11 +1,19 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { BsGoogle } from 'react-icons/bs';
 import img from '../../assets/images/login/login.svg';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
 
-    const { login } = useContext(AuthContext);
+    // const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const loaction = useLocation();
+
+    const from = loaction.state?.from?.pathname || '/';
+
+    const { login, providerLogin } = useContext(AuthContext);
 
     const handleLogin = event => {
         event.preventDefault();
@@ -19,6 +27,22 @@ const Login = () => {
                 console.log(user);
             })
             .then(error => console.log(error));
+    }
+
+
+
+    // login with google handle
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.error(error);
+                // setError(error.message)
+            })
     }
 
     return (
@@ -44,9 +68,24 @@ const Login = () => {
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
+                            {/* {
+                                error && <>
+                                    <p className='text-center text-red-600'>{error}</p>
+                                </>
+                            } */}
+
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
+                        </div>
+                        <div className="form-control mt-6">
+                            <p className='text-center'>Login with</p>
+                            <div className="form-control mt-2">
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline"> <span className='mx-2'> <BsGoogle /></span> Login with Google</button>
+                            </div>
+                            <div className='mt-2'>
+                                <p><small>Don't have an account? <Link className='text-cyan-700 font-medium' to="/signup"> Register here</Link></small></p>
+                            </div>
                         </div>
                     </form>
                     <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
