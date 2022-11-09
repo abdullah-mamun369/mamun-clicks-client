@@ -8,6 +8,7 @@ import ServiceDetails from '../../Pages/Service Details/ServiceDetails';
 import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
 import Dashboard from '../../Pages/UserDashboard/Dashboard';
+import MyReviews from '../../Pages/UserReviews/MyReviews';
 
 export const router = createBrowserRouter([
     {
@@ -51,6 +52,12 @@ export const router = createBrowserRouter([
                 path: '/dashboard',
                 element: <Dashboard></Dashboard>
             }
+            ,
+            {
+                path: '/myreviews',
+                element: <MyReviews></MyReviews>
+            }
+
         ]
     }
 ])

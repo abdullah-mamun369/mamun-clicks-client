@@ -5,7 +5,7 @@ const ReviewProduct = ({ review }) => {
 
     const { user } = useContext(AuthContext);
     const [orders, setOrders] = useState([])
-    const { _id, reviewMessage, customer, service, } = review;
+    const { _id, reviewMessage, customer, service } = review;
 
     // useEffect(() => {
     //     fetch(`http://localhost:5000/purchase?email=${user?.email}`)
