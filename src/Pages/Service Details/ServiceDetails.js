@@ -1,30 +1,36 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import ReviewProduct from './ReviewProduct';
 import './ServiceDetails.css'
 
 const ServiceDetails = () => {
-    const { image, name, description, _id, price } = useLoaderData();
+    const { name, description, _id } = useLoaderData();
 
     // modal-function
     const { user } = useContext(AuthContext);
+
+    const [reviews, setReviews] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?service=${_id}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [_id])
 
     const handlePostReview = event => {
         event.preventDefault();
         const form = event.target;
         const userName = `${form.firstName.value} ${form.lastName.value}`;
         const email = user?.email || 'unregistered';
-        const phone = form.phone.value;
-        const message = form.message.value;
+        const reviewMessage = form.reviewMessage.value;
 
-        const purchase = {
+        const review = {
             service: _id,
             serviceName: name,
-            price,
             customer: userName,
             email,
-            phone,
-            message
+            reviewMessage
         }
 
         // if(phone.length > 10){
@@ -34,12 +40,12 @@ const ServiceDetails = () => {
 
         // }
 
-        fetch('http://localhost:5000/purchase', {
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(purchase)
+            body: JSON.stringify(review)
         })
             .then(res => res.json())
             .then(data => {
@@ -69,7 +75,14 @@ const ServiceDetails = () => {
             <div>
                 <div>
                     <h2>
-                        This is review
+                        {
+                            reviews.map(review => <ReviewProduct
+                                key={review._id}
+                                review={review}
+                            // handleDelete={handleDelete}
+                            // handleStatusUpdate={handleStatusUpdate}
+                            ></ReviewProduct>)
+                        }
                     </h2>
                 </div>
 
@@ -92,7 +105,7 @@ const ServiceDetails = () => {
 
                                         <input name="email" type="text" placeholder="Your email" defaultValue={user?.email} className="input input-ghost w-full  input-bordered" readOnly />
                                     </div>
-                                    <textarea name="message" className="my-4 textarea textarea-bordered h-24 w-full" placeholder="Write your review" required></textarea>
+                                    <textarea name="reviewMessage" className="my-4 textarea textarea-bordered h-24 w-full" placeholder="Write your review" required></textarea>
 
                                     <input className='btn' type="submit" value="Submit Review" />
                                 </form>
