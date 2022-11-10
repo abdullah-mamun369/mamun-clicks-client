@@ -88,7 +88,7 @@ const Login = () => {
                             </div>
                         </div>
                     </form>
-                    <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                    <p className='text-center'>New to Mamun Clicks <Link className='text-primary font-bold' to="/signup">Sign Up</Link> </p>
                 </div>
             </div>
         </div>
