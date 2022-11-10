@@ -54,11 +54,11 @@ const Purchase = () => {
     }
 
     return (
-        <div>
+        <div className='container m-auto'>
             <form onSubmit={handlePlacePurchase}>
-                <h2 className="text-4xl">You are about to purchase: {name}</h2>
-                <h4 className="text-3xl">Price: {price}</h4>
-                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4'>
+                <h2 className="text-4xl font-bold mb-3 my-10">You are Purchasing: {name}</h2>
+                <h4 className="text-3xl mb-3 font-semibold">Price: {price}</h4>
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mb-5'>
                     <input name="firstName" type="text" placeholder="First Name" className="input input-ghost w-full  input-bordered" />
                     <input name="lastName" type="text" placeholder="Last Name" className="input input-ghost w-full  input-bordered" />
                     <input name="phone" type="text" placeholder="Your Phone" className="input input-ghost w-full  input-bordered" required />
@@ -66,7 +66,7 @@ const Purchase = () => {
                 </div>
                 <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your Message" required></textarea>
 
-                <input className='btn' type="submit" value="Place Your Order" />
+                <input className='btn btn-primary mt-5 mb-60' type="submit" value="Place Your Order" />
             </form>
         </div>
     );

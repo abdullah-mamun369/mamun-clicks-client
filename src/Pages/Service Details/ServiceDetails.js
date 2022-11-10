@@ -92,7 +92,10 @@ const ServiceDetails = () => {
 
                 <div className='container m-auto mb-20'>
                     {/* The button to open modal */}
-                    <label htmlFor="my-modal-3" className="btn">Post Your Review</label>
+                    {
+                        user?.email ? <label htmlFor="my-modal-3" className="btn btn-primary">Post Your Review</label> : <p className='text-2xl font-semibold'>Please LogIn to Post a review.... <Link to='/login' className='text-primary'>Login</Link></p>
+                    }
+
 
                     {/* Put this part before </body> tag */}
                     <input type="checkbox" id="my-modal-3" className="modal-toggle" />
@@ -111,7 +114,7 @@ const ServiceDetails = () => {
                                     </div>
                                     <textarea name="reviewMessage" className="my-4 textarea textarea-bordered h-24 w-full" placeholder="Write your review" required></textarea>
 
-                                    <input className='btn' type="submit" value="Submit Review" />
+                                    <input className='btn btn-primary' type="submit" value="Submit Review" />
                                 </form>
                             </div>
                         </div>

@@ -1,3 +1,24 @@
+# Live Site Link-
+https://assignment-11-ae38f.web.app/
+ 
+## Description
+This is a Catering Service Provider website. Unlike others, Pagla Catering Service is devoted to delivering super delicious food and fabulous service to spice up your event. Whatever you’re planning - a gorgeous wedding, a high-end corporate event, new year party, or anything - we will create an amazing food experience suited to your taste.
+ 
+## Functionalities
+1. CTA section
+2. Regular Services Details
+3. Custom Services Details
+4. Reviews About Services
+5. User Dashboard
+ 
+ 
+### Hosting
+This website is hosted in firebase. And for database, Vercel and MongoDB were used.
+ 
+#### Framework
+ReactJS, Tailwind, DaisyUi were used to build this awesome site.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

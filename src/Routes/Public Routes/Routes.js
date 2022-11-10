@@ -11,6 +11,7 @@ import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
 import Dashboard from '../../Pages/UserDashboard/Dashboard';
 import MyReviews from '../../Pages/UserReviews/MyReviews';
+import PrivateRoutes from '../Private Routes/PrivateRoutes';
 
 
 export const router = createBrowserRouter([
@@ -52,7 +53,7 @@ export const router = createBrowserRouter([
                 loader: async ({ params }) => {
                     return fetch(`https://assignment-11-server-beta.vercel.app/services/${params.id}`);
                 },
-                element: <Purchase></Purchase>
+                element: <PrivateRoutes><Purchase></Purchase></PrivateRoutes>
             },
             {
                 path: '/dashboard',
@@ -61,12 +62,12 @@ export const router = createBrowserRouter([
             ,
             {
                 path: '/myreviews',
-                element: <MyReviews></MyReviews>
+                element: <PrivateRoutes><MyReviews></MyReviews></PrivateRoutes>
             },
 
             {
                 path: '/services/add',
-                element: <AddService></AddService>
+                element: <PrivateRoutes><AddService></AddService></PrivateRoutes>
             },
             {
                 path: '/blog',

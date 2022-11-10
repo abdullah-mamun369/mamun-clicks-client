@@ -36,12 +36,12 @@ const AddService = () => {
 
 
     return (
-        <div className='mb-36'>
+        <div className='mb-52'>
             <form onSubmit={handleAddService}>
                 <h2 className="text-3xl font-bold text-primary text-center mb-5 mt-20">Plaese add your service </h2>
                 <div className='container m-auto'>
-                    <input onChange={handleInputBlur} name="image" type="text" placeholder="Please Place your image url" className="input input-ghost w-full  input-bordered mb-5" />
-                    <input onChange={handleInputBlur} name="name" type="text" placeholder="Please add your service name" className="input input-ghost w-full  input-bordered mb-5" />
+                    <input onChange={handleInputBlur} name="image" type="text" placeholder="Please Place your image url" className="input input-ghost w-full  input-bordered mb-5" required />
+                    <input onChange={handleInputBlur} name="name" type="text" placeholder="Please add your service name" className="input input-ghost w-full  input-bordered mb-5" required />
                     <textarea onChange={handleInputBlur} name="description" className="textarea textarea-bordered h-24 w-full" placeholder="Please type your service description mb-5" required></textarea>
                     <input onChange={handleInputBlur} name="price" type="number" placeholder="Please place your price" className="input input-ghost w-full  input-bordered mb-5" required />
 
