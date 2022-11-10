@@ -16,24 +16,6 @@ const MyReviews = () => {
     }, [user?.email])
 
 
-    // const handleReviewUpdate = e => {
-    //     e.preventDefault();
-    //     // console.log(user);
-    //     fetch(`http://localhost:5000/reviews/${id}}`, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify(review)
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             if (data.modifiedCount > 0) {
-    //                 alert('User Updated');
-    //             }
-    //             console.log(data);
-    //         })
-    // }
 
     const handleReviewUpdate = (id, message) => {
         console.log(id, message);
@@ -51,34 +33,13 @@ const MyReviews = () => {
                     console.log(data.modifiedCount);
                     if (data.modifiedCount > 0) {
                         alert('review Updated');
+                        window.location.reload(true);
                     }
                     console.log(data);
                 })
         }
     }
 
-
-    // const handleReviewUpdate = id => {
-    //     fetch(`http://localhost:5000/reviews/${id}`, {
-    //         method: 'PATCH',
-    //         headers: {
-    //             'content-type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ status: 'Approved' })
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data);
-    //             if (data.modifiedCount > 0) {
-    //                 const remaining = reviews.filter(odr => odr._id !== id);
-    //                 const approving = reviews.find(odr => odr._id === id);
-    //                 approving.status = 'Approved'
-
-    //                 const newOrders = [approving, ...remaining];
-    //                 setReviews(newOrders);
-    //             }
-    //         })
-    // }
 
 
     const handleDelete = id => {
@@ -100,16 +61,21 @@ const MyReviews = () => {
     }
 
     return (
-        <div>
-            {
-                reviews.map(review => <UserReview
-                    key={review._id}
-                    review={review}
-                    handleReviewUpdate={handleReviewUpdate}
-                    handleDelete={handleDelete}
+        <div className='grid lg:grid-cols-4 sm:grid-cols-1 gap-4 container m-auto'>
 
-                ></UserReview>)
-            }
+            <div className='lg:col-span-4'>
+                <div className='grid lg:grid-cols-3 sm:grid-cols-3 gap-4 my-10'>
+                    {
+                        reviews.map(review => <UserReview
+                            key={review._id}
+                            review={review}
+                            handleReviewUpdate={handleReviewUpdate}
+                            handleDelete={handleDelete}
+
+                        ></UserReview>)
+                    }
+                </div>
+            </div>
         </div>
     );
 };

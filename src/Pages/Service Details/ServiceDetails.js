@@ -5,12 +5,13 @@ import ReviewProduct from './ReviewProduct';
 import './ServiceDetails.css'
 
 const ServiceDetails = () => {
-    const { name, description, _id } = useLoaderData();
+    const { image, name, description, _id, price } = useLoaderData();
 
     // modal-function
     const { user } = useContext(AuthContext);
 
     const [reviews, setReviews] = useState([])
+
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?service=${_id}`)
@@ -33,12 +34,7 @@ const ServiceDetails = () => {
             reviewMessage
         }
 
-        // if(phone.length > 10){
-        //     alert('Phone number should be 10 characters or longer')
-        // }
-        // else{
 
-        // }
 
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
@@ -63,30 +59,38 @@ const ServiceDetails = () => {
 
     return (
         <div>
-            <h2>{name}</h2>
-            <p>{description}</p>
             <div>
-                <Link className="card-actions" to={`/purchase/${_id}`}>
-                    <button className="btn btn-primary w-full">Details</button>
-                </Link>
+                <img src={image} alt="" className='mb-20 w-screen h-96' />
+                <div className='container m-auto shadow-xl bg-slate-100 py-20 px-40 rounded-2xl mb-20'>
+                    <h1 className='text-5xl font-bold text-center text-primary '>{name}</h1>
+                    <p className='text-center my-8'>{description}</p>
+                    <h3 className='text-2xl font-bold text-center '>Price: ${price}/hr</h3>
+                    <Link to={`/purchase/${_id}`}><button className="btn btn-outline btn-primary m-auto grid mt-8">Purchase</button></Link>
+
+                </div>
             </div>
+
 
             {/* Review start */}
             <div>
                 <div>
-                    <h2>
-                        {
-                            reviews.map(review => <ReviewProduct
-                                key={review._id}
-                                review={review}
-                            // handleDelete={handleDelete}
-                            // handleStatusUpdate={handleStatusUpdate}
-                            ></ReviewProduct>)
-                        }
-                    </h2>
+                    <h1 className='text-3xl font-bold text-center mb-3'>Reviews of this product</h1>
+                    <p className='text-xl font-semibold text-center mb-8'>You have to refreash to see your posted review</p>
+                    <div className='lg:col-span-4 container m-auto'>
+                        <div className='grid lg:grid-cols-4 sm:grid-cols-3 gap-4 mb-10'>
+                            {
+                                reviews.map(review => <ReviewProduct
+                                    key={review._id}
+                                    review={review}
+                                ></ReviewProduct>)
+                            }
+                        </div>
+                    </div>
+
+
                 </div>
 
-                <div>
+                <div className='container m-auto mb-20'>
                     {/* The button to open modal */}
                     <label htmlFor="my-modal-3" className="btn">Post Your Review</label>
 

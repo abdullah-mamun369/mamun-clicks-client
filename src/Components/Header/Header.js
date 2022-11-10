@@ -32,7 +32,7 @@ const Header = () => {
 
                     </div>
                     <div className="flex-1">
-                        <Link className="btn btn-ghost normal-case text-xl"><span className='text-2xl'>Mamun</span>Clicks</Link>
+                        <Link to='/' className="btn btn-ghost normal-case text-xl"><span className='text-2xl font-bold mr-2'>MAMUN </span>CLICKS</Link>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal p-0">

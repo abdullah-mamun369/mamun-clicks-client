@@ -38,17 +38,15 @@ const Dashboard = () => {
 
 
     return (
-        <div>
-            <h2 className="text-5xl">You have {orders.length} Orders</h2>
-            <div className="overflow-x-auto w-full">
+        <div className='container m-auto my-10'>
+            <h2 className="text-5xl font-bold mb-5">You have {orders.length} Orders</h2>
+            <div className="overflow-x-auto w-full h-screen">
                 <table className="table w-full">
                     <thead>
                         <tr>
-                            <th>
-                            </th>
-                            <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Remove Purchase</th>
+                            <th>For whome you purchase</th>
+                            <th>Service Name</th>
                             <th></th>
                         </tr>
                     </thead>

@@ -14,10 +14,18 @@ const ReviewProduct = ({ review }) => {
     // }, [user?.email])
 
     return (
-        <div>
-
-            <h2>{customer}</h2>
-            <h2>{reviewMessage}</h2>
+        <div className='container m-auto'>
+            <div className="card w-96 bg-base-100 shadow-xl border">
+                <div className="card-body">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                        <div className="w-10 rounded-full">
+                            <img src={user?.photoURL} alt="" />
+                        </div>
+                    </label>
+                    <h2 className="card-title">{customer}</h2>
+                    <p>{reviewMessage}</p>
+                </div>
+            </div>
 
         </div>
     );
