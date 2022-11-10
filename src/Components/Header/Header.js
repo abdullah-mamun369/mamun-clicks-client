@@ -12,7 +12,7 @@ const Header = () => {
             .catch(error => console.error(error))
     }
     return (
-        <div className='bg-slate-100 shadow-lg'>
+        <div className='bg-base-200 shadow-lg'>
             <div className=''>
                 <div className="navbar">
                     {/* mobile Nav */}
@@ -26,7 +26,7 @@ const Header = () => {
                             <li><Link to="/blog">Blog</Link></li>
                             <div>
                                 <Link to="/login"><button className='btn my-2 btn-primary block'>Login</button></Link>
-                                <Link to="/register"><button className='btn mx-y btn-primary'>Register</button></Link>
+                                <Link to="/signup"><button className='btn mx-y btn-primary'>Signup</button></Link>
                             </div>
                         </ul>
 
@@ -52,8 +52,8 @@ const Header = () => {
                                 </div>
                             </label>
                             <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                                <li><Link to="/addservice">Add Service</Link></li>
-                                <li><Link to="/orders">Orders</Link></li>
+                                <li><Link to="/services/add">Add Service</Link></li>
+                                <li><Link to="/dashboard">My Purchases</Link></li>
                                 <li><Link to="/myreviews" className='mb-3'>My Reviews</Link></li>
                                 <li><button className='btn btn-outline btn-primary' onClick={handleLogOut}>Logout</button></li>
                             </ul>
@@ -61,7 +61,7 @@ const Header = () => {
                             :
                             <div className='hidden lg:flex'>
                                 <Link to="/login"><button className='btn mx-2'>Login</button></Link>
-                                <Link to="/register"><button className='btn mx-2'>Register</button></Link>
+                                <Link to="/signup"><button className='btn mx-2'>Signup</button></Link>
                             </div>
                     }
                 </div>
