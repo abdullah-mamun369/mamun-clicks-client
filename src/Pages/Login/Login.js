@@ -2,7 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { BsGoogle } from 'react-icons/bs';
-import img from '../../assets/images/login/login.svg';
+import img from '../../assets/images/2.png';
 import { AuthContext } from '../../Contexts/AuthProvider';
 
 const Login = () => {
