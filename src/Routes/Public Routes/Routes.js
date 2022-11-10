@@ -9,6 +9,7 @@ import Services from '../../Pages/Services/Services';
 import SignUp from '../../Pages/SignUp/SignUp';
 import Dashboard from '../../Pages/UserDashboard/Dashboard';
 import MyReviews from '../../Pages/UserReviews/MyReviews';
+import UserReview from '../../Pages/UserReviews/UserReview';
 
 export const router = createBrowserRouter([
     {
@@ -56,7 +57,12 @@ export const router = createBrowserRouter([
             {
                 path: '/myreviews',
                 element: <MyReviews></MyReviews>
-            }
+            },
+            // {
+            //     path: '/userreview',
+            //     element: <UserReview></UserReview>,
+            //     loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+            // }
 
         ]
     }
