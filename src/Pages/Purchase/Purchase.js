@@ -32,7 +32,7 @@ const Purchase = () => {
 
         // }
 
-        fetch('http://localhost:5000/purchase', {
+        fetch('https://assignment-11-server-beta.vercel.app/purchase', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -10,7 +10,7 @@ const Dashboard = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/purchase?email=${user?.email}`)
+        fetch(`https://assignment-11-server-beta.vercel.app/purchase?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user?.email])
@@ -21,7 +21,7 @@ const Dashboard = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this order');
         if (proceed) {
-            fetch(`http://localhost:5000/purchase/${id}`, {
+            fetch(`https://assignment-11-server-beta.vercel.app/purchase/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

@@ -8,7 +8,7 @@ const ReviewProduct = ({ review }) => {
     const { _id, reviewMessage, customer, service } = review;
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/purchase?email=${user?.email}`)
+    //     fetch(`https://assignment-11-server-beta.vercel.app/purchase?email=${user?.email}`)
     //         .then(res => res.json())
     //         .then(data => setOrders(data))
     // }, [user?.email])

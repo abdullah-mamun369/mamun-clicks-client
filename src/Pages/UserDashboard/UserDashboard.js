@@ -9,7 +9,7 @@ const UserDashboard = ({ order, handleDelete, handleStatusUpdate }) => {
     const [orderService, setOrderService] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/services/${service}`)
+        fetch(`https://assignment-11-server-beta.vercel.app/services/${service}`)
             .then(res => res.json())
             .then(data => setOrderService(data));
     }, [service])

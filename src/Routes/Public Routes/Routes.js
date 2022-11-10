@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 loader: async () => {
-                    return fetch('http://localhost:5000/services');
+                    return fetch('https://assignment-11-server-beta.vercel.app/services');
                 },
                 element: <Home></Home>
             },
@@ -36,21 +36,21 @@ export const router = createBrowserRouter([
             {
                 path: '/services',
                 loader: async () => {
-                    return fetch('http://localhost:5000/services');
+                    return fetch('https://assignment-11-server-beta.vercel.app/services');
                 },
                 element: <Services></Services>
             },
             {
                 path: '/service/:id',
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/services/${params.id}`);
+                    return fetch(`https://assignment-11-server-beta.vercel.app/services/${params.id}`);
                 },
                 element: <ServiceDetails></ServiceDetails>
             },
             {
                 path: '/purchase/:id',
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/services/${params.id}`);
+                    return fetch(`https://assignment-11-server-beta.vercel.app/services/${params.id}`);
                 },
                 element: <Purchase></Purchase>
             },
@@ -63,11 +63,7 @@ export const router = createBrowserRouter([
                 path: '/myreviews',
                 element: <MyReviews></MyReviews>
             },
-            // {
-            //     path: '/userreview',
-            //     element: <UserReview></UserReview>,
-            //     loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
-            // }
+
             {
                 path: '/services/add',
                 element: <AddService></AddService>
