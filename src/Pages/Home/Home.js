@@ -5,6 +5,8 @@ import './Home.css';
 
 const Home = () => {
     const services = useLoaderData();
+    const regServices = services.slice(0, 3);
+    const cusServices = services.slice(6, 50)
 
     return (
 
@@ -39,7 +41,7 @@ const Home = () => {
                         <div className='lg:col-span-4'>
                             <div className='grid lg:grid-cols-3 sm:grid-cols-3 gap-4 mb-10'>
                                 {
-                                    services.map(service => <Card key={service._id} service={service}></Card>)
+                                    regServices.map(service => <Card key={service._id} service={service}></Card>)
                                 }
                             </div>
                         </div>
@@ -49,13 +51,13 @@ const Home = () => {
                 {/* 1st-section */}
                 <div className='my-20'>
                     <h1 className='text-4xl font-bold text-primary text-center my-5'>About US</h1>
-                    <div className="hero  bg-base-200 mb-5 rounded-2xl">
-                        <div className="hero-content flex-col lg:flex-row-reverse">
-                            <img src="https://placeimg.com/260/400/arch" className="max-w-sm rounded-lg shadow-2xl" />
-                            <div>
-                                <h1 className="text-5xl font-bold">Box Office News!</h1>
-                                <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                                <button className="btn btn-primary">Get Started</button>
+                    <div className="card lg:card-side bg-base-100 shadow-xl">
+                        <figure className='w-96'><img src="https://placeimg.com/400/400/arch" alt="Album" /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">New album is released!</h2>
+                            <p>Click the button to listen on Spotiwhy app.</p>
+                            <div className="card-actions justify-end">
+                                <button className="btn btn-primary">Listen</button>
                             </div>
                         </div>
                     </div>
@@ -69,7 +71,7 @@ const Home = () => {
                         <div className='lg:col-span-4'>
                             <div className='grid lg:grid-cols-3 sm:grid-cols-3 gap-4 mb-10'>
                                 {
-                                    services.map(service => <Card key={service._id} service={service}></Card>)
+                                    cusServices.map(service => <Card key={service._id} service={service}></Card>)
                                 }
                             </div>
                         </div>
